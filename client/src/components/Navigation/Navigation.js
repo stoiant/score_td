@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import ArchiveIcon from '@material-ui/icons/Archive';
+import SportsFootballIcon from '@material-ui/icons/SportsFootball';
 import HomeIcon from '@material-ui/icons/Home';
 import DescriptionIcon from '@material-ui/icons/Description';
 import LabelIcon from '@material-ui/icons/Label';
@@ -124,7 +124,7 @@ export default function Navigation() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.title}>
-            Mern Boiler Plate
+            NFL Rushing
           </Typography>
           <IconButton
             color="inherit"
@@ -156,6 +156,10 @@ export default function Navigation() {
           <ListItem button key={"Home"} component={Link} to="/">
             <ListItemIcon><HomeIcon /></ListItemIcon>
             <ListItemText primary={"Home"} onClick={handleDrawerClose} />
+          </ListItem>
+            <ListItem button key={"NFL Rushing"} component={Link} to="/nfl-rushing">
+            <ListItemIcon><SportsFootballIcon /></ListItemIcon>
+            <ListItemText primary={"NFL Rushing"} onClick={handleDrawerClose} />
           </ListItem>
           <ListItem button key={"Read Me"} component={Link} to="/readme">
             <ListItemIcon><BookIcon /></ListItemIcon>

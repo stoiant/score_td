@@ -1,6 +1,42 @@
-# MERN Boilerplate
+# NFL Rushing
+---
 
-Boilerplate for MERN stack development, *NOT* ready for production or even *DEV* as its currently undergoing testing
+The file [`rushing.json`](/server/data/rushing.json) contains data about NFL players' rushing statistics. Each entry contains the following information
+
+* `Player` (Player's name)
+* `Team` (Player's team abreviation)
+* `Pos` (Player's postion)
+* `Att/G` (Rushing Attempts Per Game Average)
+* `Att` (Rushing Attempts)
+* `Yrds` (Total Rushing Yards)
+* `Avg` (Rushing Average Yards Per Attempt)
+* `Yds/G` (Rushing Yards Per Game)
+* `TD` (Total Rushing Touchdowns)
+* `Lng` (Longest Rush -- a `T` represents a touchdown occurred)
+* `1st` (Rushing First Downs)
+* `1st%` (Rushing First Down Percentage)
+* `20+` (Rushing 20+ Yards Each)
+* `40+` (Rushing 40+ Yards Each)
+* `FUM` (Rushing Fumbles)
+
+
+## Requirements
+
+1. Create a web app. This must be able to do the following steps
+    1. Create a webpage which displays a table with the contents of `rushing.json`
+    2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
+    3. The user should be able to filter by the player's name
+    4. The user should be able to download the sorted/filtered data as a CSV
+
+    
+# Installation and running this solution
+---
+
+From the top right menu select `NFL Rushing` to view and filter sample data. Some of the fields have been converted to numbers/strings to match the corresponding data formats so proper sorting can occur.
+
+In the deployment to [TheDemo](https://thedemo.dev) data has already been imported.
+
+The repo can be cloned and built locally as well by following the instructions below.
 
 **Highlights**
 
@@ -38,15 +74,21 @@ These are the planned updates of the project.
 
 *NONE WHATSOEVER, NO WARRANTY OF ANY KIND, ETC.*
 
-## Components
+### COMPONENTS:
+---
 
+There up to four usable components each serving its purpose, the client servese the static content, backend runs the API, database and weblog tailing using log.io to make it easier to troubleshoot when there are problems.
 
-### Frontend
+There are two dashboards setup to monitor `Express` as well as the `Backend`. Logs are tailed and viewable in the web browser thanks to `log.io`.
+
+---
+### FRONTEND:
+---
 
 **Requirements:**
 In order to be able to build and run the dependencies you will have to install a compatible version of node `Node v11.15.0` was tested to work with this project.
 
-#### Development
+#### DEVELOPMENT
 
 Project is bootstrapped with [react-create-app](https://create-react-app.dev/docs/getting-started/). There is `Docker` image created for the client that uses `nginx` to serve the static content. For development is not necessary to build the image and it is easier to just run it locally.
 
@@ -94,7 +136,7 @@ Run <code>npm run client:dev -- up</code> at main project folder to start the im
 
 
 
-#### Production
+#### PRODUCTION
 
 For production you will need a valid `SSL` certificate. You can use [Lets Encrypt](https://letsencrypt.org/) or [SSL For Free](https://www.sslforfree.com/) to obtain a valid certificate. 
 
@@ -106,7 +148,9 @@ Change the `localhost` to your `domain.*` inside `client/config/nginx.conf`. Cha
 
 **_TODO:_**  Add more details.
 
-### Backend
+---
+### BACKEND:
+---
 
 **_TODO:_**  Currently `nginx` has a setup for `reverse-proxy` as there is no `SSL` configured for the `APP`, `Database` and `Log.io`. The client accesses the `express-status` dashboard, tailed logs, and `node-dash` using an `iframe`, it is not ideal but works for easy access when developing.
 
@@ -134,7 +178,7 @@ DB_PASS=
 
 `Node v11.15.0` was used for the testing and is required to be install for things to work.
 
-#### Development
+#### DEVELOPMENT
 
 First install the dependencies then run the server.
 
@@ -150,14 +194,15 @@ Run <code>npm run server:dev -- build</code> at main project folder to build the
 Run <code>npm run client:server -- up</code> at main project folder to start the image with ports published and build directory mounted.
 
 
-#### Production
+#### PRODUCTION
 
 Currently the same instructions as for Dev.
 
 **_TODO:_**  Add `SSL` support for the API server, currently `nginx` reversed-proxy is used to access the API via SSL.
 
-
-#### Database
+---
+#### DATABASE
+---
 
 The database is ran in a docker container only. The following is used for the docker image:
 
@@ -179,7 +224,7 @@ Mounts:
 
 **_TODO:_**  Add user setup and authentication for both MongoDB and the MongoDB BI connector.
 
-#### Development
+#### DEVELOPMENT
 
 You have to build the image then run it using the following:
 
@@ -187,11 +232,13 @@ Run <code>npm run database -- build</code> at main project folder to build the i
 
 Run <code>npm run database -- up</code> at main project folder to start the image with ports published and build directory mounted.
 
-#### Production
+#### PRODUCTION
 
 Currently the same as developemnt.
 
+---
 #### Log.io
+---
 
 `.env` `DATA` is used for central mounting point, where logs from all services are located. The log.io runs the server at port `6688` and the data shipper is just ran locally.
 
@@ -206,12 +253,12 @@ Development and production configurations are the same.
 
 ## Usage
 
+List of commands that can be ran from the main directory and also setup scripts from the main `package.json`.
 
 ## Docker commands
 
 **_TODO:_** Add helpful commands when only the docker image is build and ran withot using composer.
 
-Note: you may need to install nodemon: <code>npm install nodemon -g</code>
 
 ## NPM Scripts
 
@@ -304,6 +351,7 @@ docker-compose -f docker-compose-server.yml
 ## PREREQUESITES
 
 **_TODO:_** Add required setup to be able to start running the project.
+Note: you may need to install nodemon: <code>npm install nodemon -g</code>
 
 ## REFERENCES AND CREDITS
 

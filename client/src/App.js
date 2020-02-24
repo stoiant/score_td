@@ -19,6 +19,7 @@ import 'animate.css'
 // eslint-disable-next-line
 import axios from 'axios'
 import { CssBaseline } from '@material-ui/core'
+import Nfl from './components/Nfl/Nfl'
 
 // TODO this should be separated
 const theme = createMuiTheme({
@@ -104,6 +105,7 @@ class App extends Component {
               <Route path="/nodeStatus" component={ NodeStatus } />
               <Route path="/readme" component={ Readme } />
               <Route path="/logs" component={ Log } />
+              <Route path="/nfl-rushing" component={ Nfl } />
               <Route component={ Error } />
             </Switch>
           </div>

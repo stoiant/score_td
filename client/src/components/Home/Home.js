@@ -12,7 +12,7 @@ class Home extends Component {
         <Card className={ styles.card }>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
-              Mern Boiler Plate
+              NFL Rushing
             </Typography>
             <Typography variant="h5" component="h2" gutterBottom>
             </Typography>
